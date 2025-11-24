@@ -2,6 +2,7 @@ import React from 'react'
 import useWindowStore from '../store/window'
 
 const WindowControlls = ({target}) => {
+  
     const {closeWindow} = useWindowStore();
 
   return (

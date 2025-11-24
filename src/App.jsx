@@ -5,6 +5,9 @@ import Dock from './components/Dock'
 import { Draggable } from 'gsap/Draggable'
 import gsap from 'gsap'
 import Terminal from "./windows/Terminal.jsx"
+import SafariWinodw from './windows/Safari.jsx'
+import ResumeWindow from './windows/Resume.jsx'
+import Finder from './windows/Finder.jsx'
 gsap.registerPlugin(Draggable)
 
 const App = () => {
@@ -15,6 +18,9 @@ const App = () => {
     <Dock/>
 
     <Terminal/>
+    <SafariWinodw/>
+    <ResumeWindow/>
+    <Finder/>
    </main>
   )
 }

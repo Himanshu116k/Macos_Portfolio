@@ -1,14 +1,14 @@
 import React from 'react'
 import WindowControlls from '../components/WindowControlls'
 import WindowWrapper from '../hoc/WindowWrapper'
-import { Plus,Copy,Search,ChevronLeft, ChevronRight, PanelLeft, Share, ShieldHalf } from 'lucide-react'
+import { Plus,Copy,Search,ChevronLeft, ChevronRight, PanelLeft, Share, ShieldHalf, MoveRight } from 'lucide-react'
 import { blogPosts } from '../constants'
 
 const Safari = () => {
   return (
     <>
     <div id='window-header'>
-        <WindowControlls  target="Safari"/>
+        <WindowControlls  target="safari"/>
        <PanelLeft className='ml-10 icon'/>
        <div className='flex items-center gap-1 ml-5'>
         
@@ -43,11 +43,20 @@ const Safari = () => {
         <div className='blog'>
             <h2>My developer Blog</h2>
             <div  className='space-y-8'>
-                {blogPosts.map(({id,image,tittle,date,link})=>{
-               <div key={id} className='col-span-2'>
-                <img src={image} alt={tittle}/>
+                {blogPosts.map(({id,image,tittle,date,link})=>(
+               <div key={id} className='blog-post'>
+                <div className='col-span-2'>
+                   <img src={image} alt={tittle}/>
+                </div>
+                <div className='content'>
+                 <p>{date}</p>
+                 <h3>{tittle}</h3>
+                 <a href={link}  target='_blank'rel='noopenernoreferrer'>
+                  checkOut the full post <MoveRight className='icon-hover'/>
+                 </a>
+                </div>
                </div>
-                })}
+                ))}
             </div>
 
         </div>
