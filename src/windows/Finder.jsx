@@ -11,19 +11,19 @@ const Finder = () => {
     
 
     const {openWindow}= useWindowStore()
-    const {activeLocation,serActiveLoaction} = useLocationStore()
+    const {activeLocation,setActiveLocation} = useLocationStore()
     const openitem =(item)=>{
   
-        if(item.fileType==="pdf") return openWindow("resume");
-        if(item.kind==='folder')return serActiveLoaction(item);
-        if(['fig','url'].includes(item.fileType)&&item.href) return window.open(item.href,'_blank')
-            openWindow(`${item.fileType}${item.kind}`,item)
+      if(item.fileType==="pdf") return openWindow("resume");
+      if(item.kind==='folder')return setActiveLocation(item);
+      if(['fig','url'].includes(item.fileType)&&item.href) return window.open(item.href,'_blank')
+        openWindow(`${item.fileType}${item.kind}`,item)
     }
 
   
 
     const renderList =(item)=>item.map((item)=>(
-        <li key={item.id}  onClick={()=>serActiveLoaction(item)}  className={clsx(item.id === activeLocation.id?'active':"not-active")}>
+      <li key={item.id}  onClick={()=>setActiveLocation(item)}  className={clsx(item.id === activeLocation.id?'active':"not-active")}>
             <img src={item.icon}  className='w-4' alt={item.name} />
             <p className='text-sm font-medium truncate'>{item.name}</p>
 
